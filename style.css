@@ -1,0 +1,19 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(231, 231, 231);
+  font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+  font-size: 40px;
+  color: rgb(63, 63, 63);
+}
