@@ -23,7 +23,7 @@ h1 {
 }
 
 input {
-  min-width: 540px;
+  min-width: 650px;
   height: 50px;
   border: 3px solid rgb(63, 63, 63);
   border-radius: 9px;
@@ -35,13 +35,17 @@ input:focus {
   outline: red;
 }
 
+.container-fetch {
+  display: none;
+}
+
 .container-fetch-input {
   display: flex;
   gap: 10px;
   align-items: center;
 }
 
-i {
+i.fa-arrow-right {
   font-family: "fontAwesome";
   width: 40px;
   height: 50px;
