@@ -45,7 +45,8 @@ input:focus {
   align-items: center;
 }
 
-i.fa-arrow-right {
+i.fa-arrow-right,
+i.fa-arrow-left {
   font-family: "fontAwesome";
   width: 40px;
   height: 50px;
@@ -55,16 +56,132 @@ i.fa-arrow-right {
   font-size: 20px;
   color: rgb(63, 63, 63);
   transform: translateX(0);
-  animation: moveX 1.5s infinite;
+  animation: moveRightX 1.5s infinite;
   cursor: pointer;
 }
 
-@keyframes moveX {
+i.fa-arrow-left {
+  transform: translateX(10px);
+  animation: moveLeftX 1.5s infinite;
+}
+
+.country-card {
+  min-width: 1200px;
+  height: 650px;
+  border: 3px solid rgb(63, 63, 63);
+  margin-top: 150px;
+  border-radius: 30px;
+  display: flex;
+  justify-content: space-between;
+  padding: 50px;
+}
+
+.card__left-side,
+.card__right-side {
+  width: 50%;
+}
+
+.card__left-side {
+  position: relative;
+}
+
+.card__left-side::after {
+  content: "";
+  position: absolute;
+  right: 50px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  background-color: rgb(63, 63, 63);
+  height: 100%;
+}
+
+.card__left-side {
+  display: flex;
+  flex-direction: column;
+  gap: 45px;
+}
+
+.left-side__maps {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.left-side__maps a {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  gap: 10px;
+  color: rgb(63, 63, 63);
+}
+
+.left-side__maps {
+  border: 3px solid rgb(63, 63, 63);
+  width: 80%;
+  border-radius: 15px;
+  height: 200px;
+  padding: 20px;
+}
+
+.maps-title {
+  font-size: 25px;
+}
+
+.card__left-side img {
+  width: 80%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.card__right-side {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card__title {
+  font-size: 30px;
+  position: relative;
+  cursor: pointer;
+}
+.card__title::after {
+  content: "";
+  position: absolute;
+  bottom: -7px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: orange;
+  height: 4px;
+  width: 30%;
+  transition: all 0.3s;
+}
+
+.card__title:hover::after {
+  width: 100%;
+}
+
+@keyframes moveRightX {
   0% {
     transform: translateX(0);
   }
   50% {
     transform: translateX(10px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+@keyframes moveLeftX {
+  0% {
+    transform: translateX(0px);
+  }
+  50% {
+    transform: translateX(-10px);
   }
   100% {
     transform: translateX(0px);

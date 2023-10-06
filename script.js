@@ -1,5 +1,5 @@
 // FETCHING ELEMENTS
-const rightArrow = document.querySelector(".fa-arrow-right");
+const rightArrow = document.querySelector(".arrow-right");
 
 // FUNCTION WHICH GET NAME FROM GetCountry AND CREATE CARD BASED ON IT
 const createCard = function (country) {
