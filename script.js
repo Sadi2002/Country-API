@@ -7,6 +7,7 @@ const countryCardContainer = document.querySelector(".country-card__container");
 const countryCard = document.querySelector(".country-card");
 const fetchDataContainer = document.querySelector(".container-fetch");
 const borderContainer = document.querySelector(".right-side__border");
+const allBorder = document.querySelector(".all-borders");
 
 // FUNCTION WHICH GET NAME FROM GetCountry AND CREATE CARD BASED ON IT
 const createCard = function (country) {
@@ -53,9 +54,7 @@ const createCard = function (country) {
 
     <div class="right-side__borders-container">
       <h3 class="borders-title">Borders</h3>
-      <div class="right-side__border">
-        <img src="${country.borders}" alt="zdjecie flagi kraju" />
-      </div>
+      
     </div>
   </div>
 </div>`;
@@ -63,23 +62,48 @@ const createCard = function (country) {
   countryCardContainer.insertAdjacentHTML("beforeend", html);
 };
 
+const createBorder = function (neighbour) {
+  const html = `<div class="all-borders">
+  <div class="right-side__border">
+    <img src="${neighbour}" alt="zdjecie flagi kraju" />
+    <h4 class="border-subtitle">Test</h4>
+  </div>
+  <div class="right-side__border">
+    <img src="${neighbour}" alt="zdjecie flagi kraju" />
+    <h4 class="border-subtitle">TEst</h4>
+  </div>
+  <div class="right-side__border">
+    <img src="${neighbour}" alt="zdjecie flagi kraju" />
+    <h4 class="border-subtitle">Test</h4>
+  </div>
+  </div>`;
+
+  console.log(neighbour);
+
+  allBorder.insertAdjacentHTML("beforeend", html);
+};
+
 // FUNCTION WHICH CREATE API AND SEND IT TO ceateCard FUNCTION
-const getCountry = function (country, neighbour) {
+const getCountry = function (country) {
   // COUNTRY 1
   fetch(`https://restcountries.com/v3.1/name/${country}`)
     .then((resp) => resp.json())
     .then((data) => createCard(data[0]))
     .catch((err) => console.error(err));
+};
 
-  // COUNTRY2
+const getBorders = function (neighbour) {
+  // BORDERS
   return fetch(`https://restcountries.com/v3.1/name/${neighbour}`)
     .then((resp) => resp.json())
-    .then((data) => createCard(data[0], console.log(data)))
+    .then(function (data) {
+      const onlyThreeBorders = data[0].borders.slice(0, 3);
+      console.log(onlyThreeBorders);
+    })
     .catch((err) => console.error(err));
 };
 
-// LISTENERS
-backArrow.addEventListener("click", function () {
+const backToStart = function () {
   countryCardContainer.textContent = "";
 
   countryCardContainer.style.opacity = 0;
@@ -87,15 +111,24 @@ backArrow.addEventListener("click", function () {
 
   fetchDataContainer.style.opacity = 1;
   fetchDataContainer.style.visibility = "visible";
-});
+};
 
-rightArrow.addEventListener("click", function () {
-  const fetchInput = inputCountry.value;
-  getCountry(fetchInput);
-
+const showCard = function () {
   countryCardContainer.style.opacity = 1;
   countryCardContainer.style.visibility = "visible";
 
   fetchDataContainer.style.opacity = 0;
   fetchDataContainer.style.visibility = "hidden";
+};
+
+// LISTENERS
+backArrow.addEventListener("click", function () {
+  backToStart();
+});
+
+rightArrow.addEventListener("click", function () {
+  const fetchInput = inputCountry.value;
+  getCountry(fetchInput);
+  getBorders(fetchInput);
+  showCard();
 });
