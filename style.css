@@ -11,6 +11,7 @@ body {
   /* align-items: center; */
   background-color: rgb(231, 231, 231);
   font-family: "Roboto", sans-serif;
+  position: relative;
 }
 
 h1 {
@@ -35,8 +36,13 @@ input:focus {
   outline: red;
 }
 
-.container-fetch {
-  display: none;
+.country-card__container {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 15%;
+  transform: translateX(5%);
 }
 
 .container-fetch-input {
@@ -128,6 +134,7 @@ i.fa-arrow-left {
 
 .maps-title {
   font-size: 25px;
+  text-align: left;
 }
 
 .card__left-side img {
@@ -147,6 +154,7 @@ i.fa-arrow-left {
   font-size: 30px;
   position: relative;
   cursor: pointer;
+  margin-bottom: 50px;
 }
 .card__title::after {
   content: "";
@@ -162,6 +170,71 @@ i.fa-arrow-left {
 
 .card__title:hover::after {
   width: 100%;
+}
+
+.right-side__box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid rgb(63, 63, 63);
+  padding: 32px;
+  border-radius: 15px;
+  width: 160px;
+}
+
+.right-side__three-box {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 45px;
+}
+
+.population-title {
+  margin-bottom: 15px;
+}
+
+.right-side__circle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 3px solid rgb(63, 63, 63);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  margin-bottom: 30px;
+}
+
+.right-side__box:nth-of-type(1) .right-side__circle {
+  background-color: rgb(210, 132, 104);
+}
+
+.right-side__box:nth-of-type(2) .right-side__circle {
+  background-color: rgb(162, 222, 162);
+}
+
+.right-side__box:nth-of-type(3) .right-side__circle {
+  background-color: rgb(145, 145, 222);
+}
+
+.right-side__borders-container {
+  display: flex;
+  gap: 15px;
+  border-radius: 15px;
+  width: 540px;
+  height: 250px;
+  border: 3px solid rgb(63, 63, 63);
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+}
+
+.back {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  font-size: 50px;
+  font-family: "fontAwesome";
+  cursor: pointer;
 }
 
 @keyframes moveRightX {
