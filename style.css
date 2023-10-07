@@ -255,6 +255,33 @@ i.fa-arrow-left {
   font-size: 50px;
   font-family: "fontAwesome";
   cursor: pointer;
+  opacity: 0;
+}
+
+.error-text {
+  font-size: 30px;
+  color: rgb(63, 63, 63);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  display: none;
+}
+
+@media (width <= 768px) {
+  .country-card__container {
+    left: -15%;
+  }
+
+  h1 {
+    margin: 300px auto 50px;
+    max-width: 400px;
+  }
+
+  input {
+    min-width: 350px;
+  }
 }
 
 @keyframes moveRightX {
