@@ -266,7 +266,8 @@ i.fa-arrow-left {
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  display: none;
+  opacity: 0;
+  /* display: none; */
 }
 
 @media (width <= 768px) {
