@@ -123,7 +123,7 @@ const showCard = function () {
 backArrow.addEventListener("click", function () {
   backToStart();
   location.reload();
-  errorMsg.style.opacity = 0;
+  errorMsg.style.opacity = 1;
 });
 
 rightArrow.addEventListener("click", function () {
