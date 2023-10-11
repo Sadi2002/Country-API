@@ -133,7 +133,7 @@ rightArrow.addEventListener("click", function () {
   showCard();
 });
 
-const enterKey = function (e) {
+const enterKey = function () {
   if (e.key === "Enter") {
     const fetchInput = inputCountry.value;
     getCountry(fetchInput);
